@@ -1,0 +1,1454 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edge Computing - Review 2 Presentation</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #f4f4f9;
+        }
+        #sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+        #sidebar h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #555;
+            padding-bottom: 10px;
+        }
+        #sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #sidebar li a {
+            color: #ddd;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        #sidebar li a:hover {
+            background-color: #575757;
+            color: white;
+        }
+        #content {
+            flex-grow: 1;
+            padding: 40px;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
+        section {
+            margin-bottom: 50px;
+            padding-top: 20px;
+            border-bottom: 2px solid #ddd;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h1 {
+            border-bottom: 3px solid #4CAF50;
+            padding-bottom: 15px;
+        }
+        .video-placeholder {
+            width: 100%;
+            height: 400px;
+            background-color: #e0e0e0;
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            color: #888;
+            margin: 20px 0;
+        }
+        .tech-logos {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .tech-logos img {
+            height: 50px;
+        }
+        .error-section {
+            background-color: #fff3f3;
+            border-left: 5px solid #d9534f;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: "Courier New", Courier, monospace;
+        }
+        .workflow-image {
+            max-width: 100%;
+            border: 1px solid #ccc;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="sidebar">
+        <h2>Presentation Menu</h2>
+        <ul>
+            <li><a href="#intro">Project Overview</a></li>
+            <li><a href="#person1">1. Foundations & Architecture</a></li>
+            <li><a href="#person2">2. Data Generation & Ingestion</a></li>
+            <li><a href="#person3">3. Overload & Monitoring</a></li>
+            <li><a href="#person4">4. Visualization & Autoscaling</a></li>
+            <li><a href="#person5">5. CI/CD Integration</a></li>
+            <li><a href="#person6">6. Future Implementations</a></li>
+        </ul>
+    </div>
+
+    <div id="content">
+        <section id="intro">
+            <h1>A Scalable Edge-Cloud Framework for Real-Time Remote Patient Monitoring using a Latency-Aware DRL Model, Autoscaling, and Federated Learning</h1>
+            <p><strong>Course:</strong> Edge Computing</p>
+            <p><strong>Review:</strong> 2 (70% Completion)</p>
+            <p>This presentation outlines the implementation of a scalable edge computing framework. We will demonstrate the complete workflow, from data generation at the edge to dynamic, load-based autoscaling of applications, and discuss the future integration of advanced AI models.</p>
+        </section>
+
+        <section id="person1">
+            <h2>1. Foundations & Architecture</h2>
+            <h3>Presented by: [Person 1's Name]</h3>
+
+            <div class="video-placeholder">
+                [Video Clip: Starting EdgeX, Docker, and Kubernetes]
+            </div>
+
+            <h3>Technology Used</h3>
+            <div class="tech-logos">
+                <img src="https://www.edgexfoundry.org/wp-content/uploads/2021/11/EdgeX-Foundry-Logo-Update-2021-11-18-1-1.png" alt="EdgeX Foundry Logo">
+                <p><strong>EdgeX Foundry:</strong> An open-source IoT middleware platform that handles data collection and processing at the edge.</p>
+            </div>
+            <div class="tech-logos">
+                <img src="https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png" alt="Docker Logo">
+                <p><strong>Docker:</strong> A containerization platform used to package and run all our services, ensuring a consistent environment.</p>
+            </div>
+            <div class="tech-logos">
+                <img src="https://kubernetes.io/images/nav_logo.svg" alt="Kubernetes Logo">
+                <p><strong>Kubernetes:</strong> A container orchestration platform that manages our application's lifecycle and automates scaling.</p>
+            </div>
+
+            <div class="error-section">
+                <h3>Errors Faced & Resolutions</h3>
+                <p><strong>Challenge 1: Kubernetes Cluster Not Running</strong></p>
+                <ul>
+                    <li><strong>Symptom:</strong> The <code>kubectl apply</code> command failed with a <code>connectex: No connection could be made</code> error.</li>
+                    <li><strong>Resolution:</strong> The issue was that the Kubernetes server wasn't active. We enabled the built-in Kubernetes cluster within Docker Desktop's settings to resolve this.</li>
+                </ul>
+                <p><strong>Challenge 2: Corporate DNS / Network Issues</strong></p>
+                <ul>
+                    <li><strong>Symptom:</strong> Docker and Helm couldn't download required container images, failing with <code>no such host</code> errors.</li>
+                    <li><strong>Resolution:</strong> This was caused by a restrictive corporate DNS. We fixed it by manually configuring the DNS settings in both the Docker Desktop engine and the host Windows machine to use a public DNS server (<code>8.8.8.8</code>).</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="person2">
+            <h2>2. Data Generation & Ingestion</h2>
+            <h3>Presented by: [Person 2's Name]</h3>
+
+            <div class="video-placeholder">
+                [Video Clip: Registering the Device Profile, Service, and Device via API calls]
+            </div>
+            
+            <h3>Implementation Details</h3>
+            <p>Before EdgeX can accept data, the device must be formally registered. This is a mandatory, three-step process using the Core Metadata API on port <code>59881</code>.</p>
+            <ol>
+                <li><strong>Register Device Profile:</strong> We first POST a JSON file that defines the device's "template"&mdash;what data it can send (e.g., "Heart-Rate").</li>
+                <li><strong>Register Device Service:</strong> We then POST a JSON file to register the service that will manage the device.</li>
+                <li><strong>Register Device:</strong> Finally, we POST a JSON file for the specific device instance, linking the profile and service together. Only after this step will Core Data accept events from the device.</li>
+            </ol>
+
+            <div class="error-section">
+                <h3>Errors Faced & Resolutions</h3>
+                <p><strong>Challenge 1: API "Not Found" Error (404)</strong></p>
+                <ul>
+                    <li><strong>Symptom:</strong> Our Python load-generator script consistently failed with an <code>HTTP 404 Not Found</code> error.</li>
+                    <li><strong>Resolution:</strong> By inspecting the running containers with <code>docker ps</code>, we discovered our EdgeX instance was version 2.3, which uses the **V2 API**. The script was incorrectly written for the V3 API. We rewrote the script to use the correct V2 API endpoints and payload structure.</li>
+                </ul>
+                <p><strong>Challenge 2: Unstable WSL Networking & Connection Failures</strong></p>
+                <ul>
+                    <li><strong>Symptom:</strong> Even with the correct script, connections failed with a mix of errors (<code>Timeout</code>, <code>Could not resolve host</code>). A "WSL distro terminated abruptly" error was the key clue.</li>
+                    <li><strong>Resolution:</strong> We proved the host-to-container network was unstable. The final solution was to build the **load-generator directly into the `docker-compose.yml` file**. This allowed it to run inside the stable Docker network, bypassing the faulty WSL network bridge and communicating reliably.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="person3">
+            <h2>3. Overload Simulation & Monitoring</h2>
+            <h3>Presented by: [Person 3's Name]</h3>
+
+            <div class="video-placeholder">
+                [Video Clip: Showing `docker logs` of the load-generator and core-data services]
+            </div>
+            
+            <h3>Technology Used</h3>
+             <div class="tech-logos">
+                <img src="https://prometheus.io/assets/prometheus_logo-cb55bb5c346.svg" alt="Prometheus Logo">
+                <p><strong>Prometheus:</strong> A time-series database that "scrapes" (collects) metrics from our Kubernetes pods, most importantly CPU utilization.</p>
+            </div>
+
+            <h3>Implementation Details</h3>
+            <p>The system overload is simulated by the <code>load-generator</code> service we added to our Docker Compose file. It runs a continuous loop, sending a high volume of data to the <code>edgex-core-data</code> service. This sustained load is what stresses our target application. In parallel, our Prometheus stack, installed via Helm, is constantly collecting performance data from the application pod.</p>
+
+            <div class="error-section">
+                <h3>Errors Faced & Resolutions</h3>
+                <p><strong>Challenge 1: Port Conflicts</strong></p>
+                <ul>
+                    <li><strong>Symptom:</strong> EdgeX services failed to start, reporting <code>address already in use</code> for key ports.</li>
+                    <li><strong>Resolution:</strong> We re-mapped the conflicting ports in <code>docker-compose.yml</code> (e.g., changing host port `59701` to `49701`) and used <code>docker container prune</code> to remove old containers occupying the ports.</li>
+                </ul>
+                <p><strong>Challenge 2: Unhealthy Containers on Startup</strong></p>
+                <ul>
+                    <li><strong>Symptom:</strong> The <code>edgex-core-data</code> container was stuck in a restart loop or reported as `unhealthy`.</li>
+                    <li><strong>Resolution:</strong> By checking the logs, we found it was missing key configurations. We fixed this by adding the environment variable <strong><code>EDGEX_SECURITY_SECRET_STORE: "false"</code></strong> for non-secure mode and using <strong><code>condition: service_healthy</code></strong> in the `depends_on` clause to ensure a correct startup order.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="person4">
+            <h2>4. Visualization & Autoscaling in Action</h2>
+            <h3>Presented by: [Person 4's Name]</h3>
+
+            <div class="video-placeholder">
+                [Video Clip: Side-by-side Grafana dashboard and `kubectl get pods -w` terminal showing the scaling event]
+            </div>
+
+            <h3>Technology Used</h3>
+             <div class="tech-logos">
+                <img src="https://grafana.com/static/assets/img/grafana_logo_docs.svg" alt="Grafana Logo">
+                <p><strong>Grafana:</strong> The visualization platform where we built a dashboard to display live metrics from Prometheus.</p>
+            </div>
+            <div class="tech-logos">
+                <img src="https://kubernetes.io/images/nav_logo.svg" alt="Kubernetes Logo">
+                <p><strong>Kubernetes HPA (Horizontal Pod Autoscaler):</strong> The component that automatically scales our application.</p>
+            </div>
+
+            <h3>The Autoscaling Event</h3>
+            <p>Our Grafana dashboard visualizes the entire feedback loop. The video shows:</p>
+            <ol>
+                <li>The **CPU Utilization** graph spikes past our 50% target due to the simulated load.</li>
+                <li>The Kubernetes **HPA** detects this and triggers a scaling event.</li>
+                <li>The terminal shows new pods being created.</li>
+                <li>The **Active Pod Count** graph on the dashboard jumps from 1 to 4.</li>
+                <li>As the new pods share the work, the CPU utilization drops back to a healthy level, demonstrating successful load balancing.</li>
+            </ol>
+
+            <div class="error-section">
+                <h3>Errors Faced & Resolutions</h3>
+                <p><strong>Challenge 1: Monitoring Pod Crashing</strong></p>
+                <ul>
+                    <li><strong>Symptom:</strong> A monitoring pod called <code>prometheus-node-exporter</code> was stuck in a <code>CrashLoopBackOff</code> state.</li>
+                    <li><strong>Resolution:</strong> We found this pod requires host-level permissions that Docker Desktop restricts. Since it wasn't critical for our demo, we reinstalled the Prometheus Helm chart with the node-exporter disabled via the flag <strong><code>--set prometheus-node-exporter.enabled=false</code></strong>.</li>
+                </ul>
+                 <p><strong>Challenge 2: "Stuck" Helm Release</strong></p>
+                <ul>
+                    <li><strong>Symptom:</strong> After a failed installation, running <code>helm install</code> again would fail with <code>cannot re-use a name that is still in use</code>.</li>
+                    <li><strong>Resolution:</strong> A previous uninstall hadn't cleaned up properly. We fixed this by running <strong><code>helm uninstall prometheus</code></strong> again to forcefully remove the stuck release name, freeing it up for a clean installation.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="person5">
+            <h2>5. CI/CD Integration</h2>
+            <h3>Presented by: [Person 5's Name]</h3>
+            
+            <h3>Automating the Workflow</h3>
+            <p>While our current implementation is manual, a real-world project would use a **CI/CD (Continuous Integration/Continuous Deployment)** pipeline to automate the process. All our configuration files (Docker Compose, Kubernetes YAML) would be stored in a Git repository.</p>
+            <ul>
+                <li><strong>Continuous Integration (CI):</strong> When a developer pushes a change, a tool like GitHub Actions would automatically build new Docker images and run automated API tests to ensure the system is stable.</li>
+                <li><strong>Continuous Deployment (CD):</strong> If tests pass, the pipeline would automatically push the new images to a registry and deploy the update to our Kubernetes cluster with zero downtime.</li>
+            </ul>
+            <p>This automation is key to reducing manual errors, improving security, and allowing for rapid, reliable updates to the system.</p>
+        </section>
+
+        <section id="person6">
+            <h2>6. Future Implementations</h2>
+            <h3>Presented by: [Person 6's Name]</h3>
+            
+            <h3>Evolving the System</h3>
+            <p>The current setup serves as a robust foundation. The planned future work involves integrating the advanced AI and machine learning concepts from our research paper.</p>
+
+            <h4>Deep Reinforcement Learning (DRL) Model</h4>
+            <p>Our placeholder <code>local-target-app</code> will be replaced with a sophisticated DRL model. This model will perform real-time AI inference on the patient data to predict health risks. This computationally intensive task will be the true driver of CPU load and latency.</p>
+
+            <h4>Latency-Aware Autoscaling</h4>
+            <p>We will upgrade the HPA to be more intelligent. Instead of scaling based on raw CPU, it will scale based on **end-to-end application latency**, a metric that more accurately reflects the user experience, as proposed in the SDH framework.</p>
+
+            <h4>Federated Learning</h4>
+            <p>To continuously improve the DRL model without compromising patient privacy, we will implement a Federated Learning architecture.</p>
+            <img class="workflow-image" src="https://i.imgur.com/uS54sWk.jpeg" alt="Federated Learning Workflow">
+            <p>In this model:</p>
+            <ol>
+                <li>Each edge node (e.g., a hospital) trains the DRL model on its own private data.</li>
+                <li>Only the anonymous model *updates* are sent to a central server.</li>
+                <li>The server aggregates these updates to create an improved "global model," which is then distributed back to all edge nodes.</li>
+            </ol>
+            <p>This allows the system's intelligence to grow over time by learning from a diverse dataset in a secure, privacy-preserving manner.</p>
+        </section>
+
+    </div>
+
+</body>
+</html> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edge Computing - Review 2 Presentation</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #f4f4f9;
+        }
+        #sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+        #sidebar h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #555;
+            padding-bottom: 10px;
+        }
+        #sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #sidebar li a {
+            color: #ddd;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        #sidebar li a:hover {
+            background-color: #575757;
+            color: white;
+        }
+        #content {
+            flex-grow: 1;
+            padding: 40px;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
+        section {
+            margin-bottom: 50px;
+            padding-top: 20px;
+            border-bottom: 2px solid #ddd;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h1 {
+            border-bottom: 3px solid #4CAF50;
+            padding-bottom: 15px;
+        }
+        .video-placeholder {
+            width: 100%;
+            height: 400px;
+            background-color: #e0e0e0;
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            color: #888;
+            margin: 20px 0;
+        }
+        .tech-logos {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .tech-logos img {
+            height: 50px;
+        }
+        .error-section {
+            background-color: #fff3f3;
+            border-left: 5px solid #d9534f;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: "Courier New", Courier, monospace;
+        }
+        .workflow-image {
+            max-width: 100%;
+            border: 1px solid #ccc;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="sidebar">
+        <h2 style="color: white;">Presentation Menu</h2>
+        <ul>
+            <li><a href="#intro">Project Overview</a></li>
+            <li><a href="#person1">1. Foundations & Architecture</a></li>
+            <li><a href="#person2">2. Data Generation & Ingestion</a></li>
+            <li><a href="#person3">3. Overload & Monitoring</a></li>
+            <li><a href="#person4">4. Visualization & Autoscaling</a></li>
+            <li><a href="#person5">5. The DRL Model Maker</a></li>
+            <li><a href="#person6">6. Future: Federated Learning</a></li>
+        </ul>
+    </div>
+
+    <div id="content">
+        <section id="intro">
+            <h1>A Scalable Edge-Cloud Framework for Real-Time Remote Patient Monitoring using a Latency-Aware DRL Model, Autoscaling, and Federated Learning</h1>
+            <p><strong>Course:</strong> Edge Computing</p>
+            <p><strong>Review:</strong> 2 (70% Completion)</p>
+            <p>This presentation outlines the implementation of a scalable edge computing framework. We will demonstrate the complete workflow, from data generation at the edge to dynamic, load-based autoscaling of applications, and discuss the future integration of advanced AI models.</p>
+        </section>
+
+        <section id="person1">
+            <h2>1. Foundations & Architecture</h2>
+            <h3>Presented by: VABBER</h3>
+
+            <div class="video-placeholder">
+                [Video Clip: Starting EdgeX, Docker, and Kubernetes]
+            </div>
+
+            <h3>Technology Used</h3>
+            <div class="tech-logos">
+                <img src="edgex.png" alt="EdgeX Foundry Logo">
+                <p><strong>EdgeX Foundry:</strong> An open-source IoT middleware platform that handles data collection and processing at the edge.</p>
+            </div>
+            <div class="tech-logos">
+                <img src="docker.png" alt="Docker Logo">
+                <p><strong>Docker:</strong> A containerization platform used to package and run all our services, ensuring a consistent environment.</p>
+            </div>
+            <div class="tech-logos">
+                <img src="kuber.png" alt="Kubernetes Logo">
+                <p><strong>Kubernetes:</strong> A container orchestration platform that manages our application's lifecycle and automates scaling.</p>
+            </div>
+
+            <div class="error-section">
+                <h3>Errors Faced & Resolutions</h3>
+                <p><strong>Challenge 1: Understanding the API Structure</strong></p>
+                <ul>
+                    <li><strong>Symptom:</strong> Many of our initial `POST` requests to send data were failing, and we were unsure of the exact URL and JSON format required by the EdgeX V2 API.</li>
+                    <li><strong>Resolution:</strong> A major breakthrough came from exploring the <strong>EdgeX Foundry API documentation available through Swagger UI</strong>. By accessing the UI in the browser, we could see all available endpoints, their required parameters, and example JSON bodies. This was critical for debugging and correctly formatting our API calls.</li>
+                </ul>
+                <img class="workflow-image" src="swagger-ui.png" alt="EdgeX Swagger API Documentation">
+                <p><strong>Challenge 2: Port Conflicts</strong></p>
+                <ul>
+                    <li><strong>Symptom:</strong> EdgeX services failed to start, reporting <code>address already in use</code> for key ports.</li>
+                    <li><strong>Resolution:</strong> We identified that the ports were either in use by old processes or reserved by Windows. We fixed this by <strong>re-mapping the conflicting ports</strong> in `docker-compose.yml` (e.g., changing host port <code>59701</code> to <code>49701</code>) and using <code>docker container prune</code> to remove old containers.</li>
+                </ul>
+                <p><strong>Challenge 3: Unhealthy Containers on Startup</strong></p>
+                <ul>
+                    <li><strong>Symptom:</strong> Core EdgeX services like <code>core-data</code> were stuck in a restart loop or reported as `unhealthy`.</li>
+                    <li><strong>Resolution:</strong> By checking the logs, we found missing configurations. We fixed this by adding critical environment variables like <strong><code>EDGEX_SECURITY_SECRET_STORE: "false"</code></strong> and ensuring `depends_on` clauses included <strong><code>condition: service_healthy</code></strong> to manage startup order.</li>
+                </ul>
+                <p><strong>Challenge 4: Corporate DNS / Network Issues</strong></p>
+                <ul>
+                    <li><strong>Symptom:</strong> Docker and Helm couldn't download required container images, failing with <code>no such host</code> errors.</li>
+                    <li><strong>Resolution:</strong> This was caused by a restrictive corporate DNS. We fixed it by manually configuring the DNS settings in both the Docker Desktop engine and the host Windows machine to use a public DNS server (<code>8.8.8.8</code>).</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="person2">
+            <h2>2. Data Generation & Ingestion</h2>
+            <h3>Presented by: Rohith Kumar D.</h3>
+
+            <div class="video-placeholder">
+                [Video Clip: Registering the Device Profile, Service, and Device via API calls]
+            </div>
+            
+            <h3>Implementation Details</h3>
+            <p>Before EdgeX can accept data, the device must be formally registered. This is a mandatory, three-step process using the Core Metadata API on port <code>59881</code>.</p>
+            <ol>
+                <li><strong>Register Device Profile (<code>health-monitor-profile.json</code>):</strong> We first POST a JSON file that defines the device's "template"&mdash;what data it can send (e.g., "Heart-Rate" as an Int32).</li>
+                <li><strong>Register Device Service (<code>health-monitor-service.json</code>):</strong> We then POST a JSON file to register the service that will manage the device.</li>
+                <li><strong>Register Device (<code>health-monitor-device.json</code>):</strong> Finally, we POST a JSON file for the specific device instance, linking the profile and service together. Only after this step will Core Data accept events from the device.</li>
+            </ol>
+
+            <div class="error-section">
+                <h3>Errors Faced & Resolutions</h3>
+                <p><strong>Challenge 1: Device Registration</strong></p>
+<ul>
+    <li><strong>Symptom:</strong> Our load-generator failed with errors like 
+        <code>ApiVersion required, Id needs uuid, Origin required</code> when trying to send events directly to Core Data.</li>
+    <li><strong>Resolution:</strong> We realized EdgeX requires devices to be registered before posting events. 
+        To fix this, we created three files:
+        <ul>
+            <li><strong>Profile</strong> – defined Heart Rate & Blood Pressure resources.</li>
+            <li><strong>Service</strong> – logical service to manage the device.</li>
+            <li><strong>Device</strong> – linked the profile and service.</li>
+        </ul>
+        After registering them via Metadata (<code>:59881/api/v2/... </code>), we were able to send events successfully 
+        to Core Data (<code>:59880/api/v2/event/{profileName}/{deviceName}/{sourceName}</code>).
+    </li>
+</ul>
+
+                <p><strong>Challenge 2: Unstable WSL Networking & Connection Failures</strong></p>
+                <ul>
+                    <li><strong>Symptom:</strong> The script still failed with connection errors (<code>Timeout</code>, <code>Could not resolve host</code>). The "WSL distro terminated abruptly" error was a key clue.</li>
+                    <li><strong>Resolution:</strong> We proved the host-to-container network was unstable. The final, robust solution was to build the <strong>`load-generator` directly into the `docker-compose-no-secty.yml` file</strong>. This allowed it to run inside the stable Docker network, bypassing the faulty WSL network bridge.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="person3">
+            <h2>3. Overload Simulation & Monitoring</h2>
+            <h3>Presented by: Kalyan Kumar Reddy C</h3>
+
+            <div class="video-placeholder">
+                [Video Clip: Showing `docker logs` of the load-generator and core-data services]
+            </div>
+            
+            <h3>Technology Used</h3>
+             <div class="tech-logos">
+                <img src="prometheus.png" alt="Prometheus Logo">
+                <p><strong>Prometheus:</strong> A time-series database that "scrapes" (collects) metrics from our Kubernetes pods, most importantly CPU utilization.</p>
+            </div>
+
+            <h3>Implementation Details</h3>
+            <p>The system overload is simulated by the <code>load-generator</code> service we added to our Docker Compose file. It runs a continuous loop, sending a high volume of data to the <code>edgex-core-data</code> service. This sustained load stresses our target application. In parallel, our Prometheus stack, installed via Helm, constantly collects performance data from the application pod.</p>
+
+            <div class="error-section">
+                <h3>Errors Faced & Resolutions</h3>
+                <p><strong>Challenge 1: HPA Metric Status was "&lt;unknown&gt;"</strong></p>
+                <ul>
+                <li><strong>Symptom:</strong> The command <code>kubectl get hpa</code> showed <code>&lt;unknown&gt;/500m</code> for the TARGETS column, indicating the HPA could not fetch the custom metric.</li>
+                <li><strong>Resolution:</strong> This was a multi-step fix. We first installed the <strong>Prometheus Adapter</strong>. Then, we corrected its configuration via Helm to point to the correct Prometheus service URL, fixing a "no such host" error. Finally, we simplified the adapter's rule in <code>custom-metrics-values.yaml</code> to correctly process the custom <code>_avg</code> metric from your application.</li>
+                </ul>
+
+                <p><strong>Challenge 2: Missing Scrape Job</strong></p>
+                <ul>
+                    <li><strong>Symptom:</strong> After patching, the new scrape pool <code>local-target-app-direct</code> did not appear in the Prometheus Targets page.</li>
+                    <li><strong>Resolution:</strong> Verified that the Secret <code>additional-scrape-configs</code> was mounted correctly and reapplied Prometheus manifests with proper <code>additionalScrapeConfigs</code> reference.</li>
+                </ul>
+
+                
+        </section>
+
+        <section id="person4">
+            <h2>4. Visualization & Latency-Aware Autoscaling in Action</h2>
+            <h3>Presented by: Niharika</h3>
+
+            <div class="video-placeholder">
+                [Video Clip: Side-by-side Grafana dashboard and `kubectl get pods -w` terminal showing the scaling event]
+            </div>
+
+            <h3>Technology Used</h3>
+             <div class="tech-logos">
+                <img src="grafana.jpeg" alt="Grafana Logo">
+                <p><strong>Grafana:</strong> The visualization platform where we built a dashboard to display live metrics from Prometheus.</p>
+            </div>
+            <div class="tech-logos">
+                <img src="hpa.jpeg" alt="Kubernetes Logo">
+                <p><strong>Kubernetes HPA:</strong> The Horizontal Pod Autoscaler, configured to scale our application based on latency.</p>
+            </div>
+
+            <h3>The Latency-Aware Autoscaling Event</h3>
+            <p>Our implementation directly follows the advanced model proposed in the research paper. Instead of scaling on a crude metric like CPU, we scale based on the actual user experience: <strong>response time</strong>.</p>
+            <p>Our Grafana dashboard visualizes the entire feedback loop. The video shows:</p>
+            <ol>
+                <li>The <strong>"Average Response Latency (ms)"</strong> graph spikes past our 200ms target due to the simulated load.</li>
+                <li>The Kubernetes <strong>HPA</strong>, monitoring this custom latency metric via Prometheus, detects the service degradation and triggers a scaling event.</li>
+                <li>The terminal shows new pods being created.</li>
+                <li>The <strong>"Active Pod Count"</strong> graph on the dashboard jumps from 1 to 4.</li>
+                <li>As the new pods share the work, the average latency drops back below our target, demonstrating successful, user-centric load balancing.</li>
+            </ol>
+
+            <div class="error-section">
+                <h3>Errors Faced & Resolutions</h3>
+                <p><strong>Challenge 1: Monitoring Pod Crashing</strong></p>
+                <ul>
+                    <li><strong>Symptom:</strong> A monitoring pod called <code>prometheus-node-exporter</code> was stuck in a <code>CrashLoopBackOff</code> state.</li>
+                    <li><strong>Resolution:</strong> This pod requires host-level permissions that Docker Desktop restricts. Since it wasn't critical, we reinstalled the Prometheus Helm chart with the component disabled via the flag <strong><code>--set prometheus-node-exporter.enabled=false</code></strong>.</li>
+                </ul>
+                <p><strong>Challenge 2: Grafana Panel Showed "No Data"</strong></p>
+                <ul>
+                <li><strong>Symptom:</strong> The "Average Request Latency" panel in Grafana displayed "No Data", and running the query directly in Prometheus returned an "Empty query result".</li>
+                <li><strong>Resolution:</strong> We identified that the application was running but not receiving any HTTP traffic. The solution was to use <code>kubectl port-forward</code> and a PowerShell script to send repeated <code>POST</code> requests to the application, which caused it to generate the required latency metrics.</li>
+                </ul>
+
+            </div>
+        </section>
+        <section id="person5">
+            <h2>5. Future Integration: The DRL Model Maker</h2>
+            <h3>Presented by: Aditya Suresh</h3>
+            
+            <h3>Integrating Intelligence</h3>
+            <p>While the previous sections demonstrate the scalable infrastructure, this part focuses on the "brain" of our application. The ultimate goal is to deploy an intelligent model that can analyze patient data in real-time. Our current placeholder application (<code>local-target-app</code>) will be replaced by a containerized <strong>Deep Reinforcement Learning (DRL) model</strong>.</p>
+
+            <h4>The Role of the DRL Model</h4>
+            <ul>
+                <li><strong>Real-Time Inference:</strong> The DRL model will receive the live data stream of patient vitals from EdgeX.</li>
+                <li><strong>Health Risk Prediction:</strong> It will perform complex calculations to predict potential health issues, such as an impending cardiac event or a dangerous drop in oxygen saturation. This inference task is what consumes significant CPU resources, making our autoscaling framework essential.</li>
+                <li><strong>Alert Generation:</strong> Based on its predictions, the model will generate real-time alerts that can be sent to doctors and guardians, enabling proactive care.</li>
+            </ul>
+            <p>Developing this DRL model involves training it on large datasets of historical patient data to learn the complex patterns that precede adverse health events. Once trained, it is packaged into a Docker image for deployment on our Kubernetes cluster.</p>
+        </section>
+
+        <section id="person6">
+            <h2>6. Future Integration: Federated Learning</h2>
+            <h3>Presented by: Himanshu M</h3>
+            
+            <h3>Privacy-Preserving AI</h3>
+            <p>A key challenge in healthcare is training AI models on diverse datasets without violating patient privacy. The planned future implementation to solve this is <strong>Federated Learning</strong>.</p>
+
+            <h4>The Federated Learning Workflow</h4>
+             <img class="workflow-image" src="https://i.imgur.com/uS54sWk.jpeg" alt="Federated Learning Workflow">
+            <p>Instead of collecting all patient data in one central location, the workflow is as follows:</p>
+            <ol>
+                <li><strong>Local Training:</strong> Each edge node (e.g., a hospital's server) uses its own private patient data to locally train and improve its copy of the DRL model.</li>
+                <li><strong>Share Anonymous Updates:</strong> Only the generalized, anonymous model updates (mathematical weights and biases) are sent to a central aggregation server. <strong>No private patient data ever leaves the edge node.</strong></li>
+                <li><strong>Aggregate & Distribute:</strong> The central server combines the updates from all edge nodes to create an improved "global model." This smarter global model is then sent back to all the edge nodes.</li>
+            </ol>
+            <p>This approach allows the AI to become progressively more accurate by learning from a wide variety of data sources, all while maintaining the highest standards of data privacy and security.</p>
+        </section>
+
+    </div>
+
+</body>
+</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edge Computing - Review 2 Presentation</title>
+    <style>
+        /* Basic Setup & Scroll Snapping for PPT feel */
+        html {
+            scroll-snap-type: y mandatory;
+        }
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #333;
+            overflow-x: hidden;
+            background-color: #f4f4f9;
+        }
+
+        /* Slide Styles */
+        .slide {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Use min-height to allow content to expand */
+            width: 100vw;
+            padding: 60px 40px 100px 40px; /* Increased padding top/bottom */
+            box-sizing: border-box;
+            border-bottom: 2px solid #ddd;
+            scroll-snap-align: start; /* Snap to the top of each slide */
+            position: relative;
+        }
+        
+        /* Alternating Backgrounds */
+        .slide:nth-of-type(odd) { background-color: #ffffff; }
+        .slide:nth-of-type(even) { background-color: #f7f9fc; }
+
+        .slide-content {
+            max-width: 950px;
+            width: 100%;
+            text-align: left;
+        }
+        
+        /* Typography from original file */
+        h1, h2, h3 { color: #333; }
+        h1 {
+            border-bottom: 3px solid #4CAF50;
+            padding-bottom: 15px;
+            font-size: 2.5em;
+        }
+        h2 { font-size: 2.2em; margin-top: 0; }
+        h3 { font-size: 1.5em; }
+        p, li, ol { font-size: 1.1em; line-height: 1.7; }
+        code {
+            background-color: #eee;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: "Courier New", Courier, monospace;
+        }
+
+        /* Content elements from original file */
+        .video-placeholder {
+            width: 100%;
+            height: 400px;
+            background-color: #e0e0e0;
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            color: #888;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .tech-logos {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+        .tech-logos img { height: 50px; }
+        .error-section {
+            background-color: #fff3f3;
+            border-left: 5px solid #d9534f;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+        .workflow-image {
+            max-width: 100%;
+            border: 1px solid #ccc;
+            margin-top: 15px;
+            border-radius: 8px;
+        }
+
+        /* Navigation */
+        .navigation {
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+        .nav-link {
+            text-decoration: none;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .nav-link:hover {
+            background-color: #0056b3;
+        }
+
+        .drl-process-container {
+            display: flex;
+            justify-content: space-around;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+        .drl-stage {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f0f4f8;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: left;
+        }
+        .drl-stage h3 {
+            font-size: 1.6em;
+            color: #2a6496;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #a0c4ff;
+            padding-bottom: 10px;
+        }
+        .drl-stage h4 {
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .drl-stage ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .drl-stage ul li {
+            background: none;
+            padding: 8px 0;
+            border-radius: 0;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .drl-stage ul li .icon {
+            margin-right: 10px;
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+        .drl-stage .stage-number {
+            font-size: 2em;
+            color: #999;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .drl-stage li strong {
+            color: #2c3e50; /* Adjust strong color for better readability here */
+        }
+        /* Styles for the NEW vertical Federated Learning Slide */
+.fl-steps-container-vertical {
+    margin: 30px auto 0 auto;
+    max-width: 800px;
+    position: relative;
+    padding: 0 10px;
+}
+
+/* The vertical connecting line that runs behind the numbers */
+.fl-steps-container-vertical::before {
+    content: '';
+    position: absolute;
+    left: 50px; /* Aligns with the center of the number circle */
+    top: 20px; /* Starts after the first number's top half */
+    bottom: 20px; /* Ends before the last number's bottom half */
+    width: 4px;
+    background-color: #e9ecef;
+    border-radius: 2px;
+}
+
+.fl-step-block {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.fl-step-number {
+    width: 45px;
+    height: 45px;
+    background-color: #28a745; /* Green */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    flex-shrink: 0;
+    margin-right: 25px;
+    z-index: 2; /* Ensures the number is above the connecting line */
+    border: 5px solid #fff; /* Creates a cutout effect from the line */
+}
+
+.fl-step-content {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px 20px;
+    flex-grow: 1;
+    border: 1px solid #e9ecef;
+    margin-top: 5px; /* Aligns the box nicely with the number */
+}
+
+.fl-step-title {
+    margin: 0 0 8px 0;
+    font-size: 1.3em;
+    color: #2a6496; /* Blue title */
+}
+
+.fl-step-content p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Styles for Future Work Slide */
+/* Styles for the updated Future Work Slide */
+.transition-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+    align-items: stretch; /* Makes cards equal height */
+}
+
+.transition-card {
+    flex: 1;
+    max-width: 400px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 25px;
+    text-align: left;
+    border: 1px solid #e9ecef;
+}
+
+.transition-card h4 {
+    font-size: 1.5em;
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid;
+    display: flex;
+    align-items: center;
+}
+
+.transition-card.current h4 {
+    color: #dc3545; /* Red for current limitations */
+    border-color: #f5c6cb;
+}
+
+.transition-card.future h4 {
+    color: #28a745; /* Green for future benefits */
+    border-color: #c3e6cb;
+}
+
+.transition-card .icon {
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+.transition-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.transition-card li {
+    background: none;
+    padding: 8px 0;
+    display: flex;
+    align-items: flex-start;
+}
+
+.transition-card li::before {
+    content: '»';
+    margin-right: 10px;
+    font-weight: bold;
+    color: #6c757d;
+}
+
+/* Styles for Thank You Slide */
+.thank-you-container {
+    text-align: center;
+}
+
+.thank-you-container h1 {
+    font-size: 6em;
+    color: #2a6496;
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.thank-you-container h2 {
+    font-size: 3em;
+    color: #333;
+    border-bottom: none;
+    margin-top: 10px;
+}
+.workflow-image {
+    max-width: 100%;
+    border: 1px solid #ccc;
+    margin-top: 15px;
+    border-radius: 8px;
+}
+.workflow-image {
+    max-width: 100%;
+    border: 1px solid #ccc;
+    margin-top: 15px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08); /* This line adds depth */
+}
+/* Styles for the new image-centric slide */
+.image-grid-2col {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap; /* Allows images to stack on smaller screens */
+}
+
+.image-grid-2col .image-item {
+    flex: 1;
+    min-width: 45%; /* Ensures they take up roughly half the space */
+    max-width: 48%; /* Adjust max-width to control spacing */
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.image-grid-2col .image-item img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.image-grid-2col .image-item h4 {
+    font-size: 1.2em;
+    color: #2a6496;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+    </style>
+</head>
+<body>
+
+    <section class="slide" id="slide1">
+    <div class="slide-content" style="text-align: center;">
+        <h1 style="font-size: 2.8em; color: #005a9c; margin-bottom: 0.2em;">
+            A Scalable Edge-Cloud Framework for Real-Time Remote Patient Monitoring
+        </h1>
+        <h3 style="font-size: 1.4em; font-weight: 500; color: #555; margin-top: 0; margin-bottom: 30px;">
+            using a Latency-Aware DRL Model, Autoscaling, and Federated Learning
+        </h3>
+        <p style="text-align: center; font-size: 1.2em;">
+            <strong style="color:#d9534f;">Course:</strong> Edge Computing | 
+            <strong style="color:#d9534f;">Review 2</strong>
+        </p>
+        <p style="text-align: center; font-size: 1.2em;">
+            <strong style="color:#d9534f;">Presented By:</strong> VABBER, Rohith Kumar D., Kalyan Kumar Reddy C, 
+            Niharika, Aditya Suresh, Himanshu M
+        </p>
+    </div>
+    <div class="navigation">
+    <span></span>
+    <a href="#new_image_slide" class="nav-link">Next &rarr;</a>
+</div>
+</section>
+<section class="slide" id="new_image_slide">
+        <div class="slide-content">
+            <h2 style="text-align: center;">EdgeX Console & Service Overview</h2>
+            <p style="text-align: center; max-width: 800px; margin: 15px auto;">
+                A quick look at the running EdgeX Foundry dashboard and its core microservices.
+            </p>
+
+            <div class="image-grid-2col">
+                <div class="image-item">
+                    <img src="Screenshot (92).png" alt="EdgeX Console Dashboard" > 
+                    <h4>EdgeX Console Dashboard</h4>
+                    <p>Overview of registered device services, devices, and data events in EdgeX.</p>
+                </div>
+                <div class="image-item">
+                    <img src="Screenshot (93).png" alt="Consul Services List" > 
+                    <h4>Consul Services Overview</h4>
+                    <p>Health status of all running microservices managed by Consul.</p>
+                </div>
+            </div>
+        </div>
+        <div class="navigation">
+            <a href="#slide1" class="nav-link">&larr; Previous</a>
+            <a href="#slide2" class="nav-link">Next &rarr;</a>
+        </div>
+    </section>
+
+
+    <section class="slide" id="slide2">
+        <div class="slide-content">
+            <h2>1. Foundations & Architecture</h2>
+            <h3>Presented by: VABBER</h3>
+            
+                <video id="demoVideo" width="800" controls>
+                    <source src="jv2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            
+            
+            <h3>Overall System Architecture</h3>
+            <img class="workflow-image" src="arc.jpg" alt="Overall System Architecture Diagram">
+
+            <h3>Technology Used</h3>
+            <div class="tech-logos">
+                <img src="edgex.png" alt="EdgeX Foundry Logo">
+                <p><strong>EdgeX Foundry:</strong> An open-source IoT middleware platform that handles data collection and processing at the edge.</p>
+            </div>
+            <div class="tech-logos">
+                <img src="docker.png" alt="Docker Logo">
+                <p><strong>Docker:</strong> A containerization platform used to package and run all our services, ensuring a consistent environment.</p>
+            </div>
+            <div class="tech-logos">
+                <img src="kuber.png" alt="Kubernetes Logo">
+                <p><strong>Kubernetes:</strong> A container orchestration platform that manages our application's lifecycle and automates scaling.</p>
+            </div>
+
+            <div class="error-section">
+                <h3>Errors Faced & Resolutions</h3>
+                <p><strong>Challenge 1: Understanding the API Structure</strong></p>
+                <ul>
+                    <li><strong>Symptom:</strong> Many of our initial `POST` requests to send data were failing, and we were unsure of the exact URL and JSON format required by the EdgeX V2 API.</li>
+                    <li><strong>Resolution:</strong> A major breakthrough came from exploring the <strong>EdgeX Foundry API documentation available through Swagger UI</strong>. By accessing the UI in the browser, we could see all available endpoints, their required parameters, and example JSON bodies. This was critical for debugging and correctly formatting our API calls.</li>
+                </ul>
+                <img class="workflow-image" src="swagger-ui.png" alt="EdgeX Swagger API Documentation">
+                <p><strong>Challenge 2: Port Conflicts</strong></p>
+                <ul>
+                    <li><strong>Symptom:</strong> EdgeX services failed to start, reporting <code>address already in use</code> for key ports.</li>
+                    <li><strong>Resolution:</strong> We identified that the ports were either in use by old processes or reserved by Windows. We fixed this by <strong>re-mapping the conflicting ports</strong> in `docker-compose.yml` (e.g., changing host port <code>59701</code> to <code>49701</code>) and using <code>docker container prune</code> to remove old containers.</li>
+                </ul>
+                <p><strong>Challenge 3: Unhealthy Containers on Startup</strong></p>
+                <ul>
+                    <li><strong>Symptom:</strong> Core EdgeX services like <code>core-data</code> were stuck in a restart loop or reported as `unhealthy`.</li>
+                    <li><strong>Resolution:</strong> By checking the logs, we found missing configurations. We fixed this by adding critical environment variables like <strong><code>EDGEX_SECURITY_SECRET_STORE: "false"</code></strong> and ensuring `depends_on` clauses included <strong><code>condition: service_healthy</code></strong> to manage startup order.</li>
+                </ul>
+                <p><strong>Challenge 4: Corporate DNS / Network Issues</strong></p>
+                <ul>
+                    <li><strong>Symptom:</strong> Docker and Helm couldn't download required container images, failing with <code>no such host</code> errors.</li>
+                    <li><strong>Resolution:</strong> This was caused by a restrictive corporate DNS. We fixed it by manually configuring the DNS settings in both the Docker Desktop engine and the host Windows machine to use a public DNS server (<code>8.8.8.8</code>).</li>
+                </ul>
+            </div>
+        </div>
+        <div class="navigation">
+            <a href="#slide1" class="nav-link">&larr; Previous</a>
+            <a href="#slide3" class="nav-link">Next &rarr;</a>
+        </div>
+    </section>
+    <section class="slide" id="slide3">
+    <div class="slide-content">
+        <h2 style="text-align: center;">Foundation Workflow</h2>
+
+        <img class="workflow-image" 
+             src="e1.jpg" 
+             alt="Description of your workflow diagram" style="max-width: 50%;margin-left:auto;margin-right:auto;display:block;">
+
+    </div>
+
+    <div class="navigation">
+        <a href="#slide2" class="nav-link">&larr; Previous</a>
+        <a href="#slide4" class="nav-link">Next &rarr;</a>
+    </div>
+</section>
+
+    <section class="slide" id="slide4">
+        <div class="slide-content">
+            <h2>2. Data Generation & Ingestion</h2>
+            <h3>Presented by: Rohith Kumar D.</h3>
+
+                <video id="demoVideo" width="800" controls>
+    <source src="rv.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+            
+            <h3>Implementation Details</h3>
+            <p>Before EdgeX can accept data, the device must be formally registered. This is a mandatory, three-step process using the Core Metadata API on port <code>59881</code>.</p>
+            <ol>
+                <li><strong>Register Device Profile (<code>health-monitor-profile.json</code>):</strong> We first POST a JSON file that defines the device's "template"—what data it can send (e.g., "Heart-Rate" as an Int32).</li>
+                <li><strong>Register Device Service (<code>health-monitor-service.json</code>):</strong> We then POST a JSON file to register the service that will manage the device.</li>
+                <li><strong>Register Device (<code>health-monitor-device.json</code>):</strong> Finally, we POST a JSON file for the specific device instance, linking the profile and service together. Only after this step will Core Data accept events from the device.</li>
+            </ol>
+            <div class="error-section">
+                <h3>Errors Faced & Resolutions</h3>
+                <p><strong>Challenge 1: Device Registration</strong></p>
+                <ul>
+                    <li><strong>Symptom:</strong> Our load-generator failed with errors like <code>ApiVersion required, Id needs uuid, Origin required</code> when trying to send events directly to Core Data.</li>
+                    <li><strong>Resolution:</strong> We realized EdgeX requires devices to be registered before posting events. To fix this, we created three files:
+                        <ul>
+                            <li><strong>Profile</strong> – defined Heart Rate & Blood Pressure resources.</li>
+                            <li><strong>Service</strong> – logical service to manage the device.</li>
+                            <li><strong>Device</strong> – linked the profile and service.</li>
+                        </ul>
+                        After registering them via Metadata (<code>:59881/api/v2/... </code>), we were able to send events successfully to Core Data (<code>:59880/api/v2/event/{profileName}/{deviceName}/{sourceName}</code>).
+                    </li>
+                </ul>
+                <p><strong>Challenge 2: Unstable WSL Networking & Connection Failures</strong></p>
+                <ul>
+                    <li><strong>Symptom:</strong> The script still failed with connection errors (<code>Timeout</code>, <code>Could not resolve host</code>). The "WSL distro terminated abruptly" error was a key clue.</li>
+                    <li><strong>Resolution:</strong> We proved the host-to-container network was unstable. The final, robust solution was to build the <strong>`load-generator` directly into the `docker-compose-no-secty.yml` file</strong>. This allowed it to run inside the stable Docker network, bypassing the faulty WSL network bridge.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="navigation">
+            <a href="#slide3" class="nav-link">&larr; Previous</a>
+            <a href="#slide5" class="nav-link">Next &rarr;</a>
+        </div>
+    </section>
+    <section class="slide" id="slide5">
+    <div class="slide-content">
+        <h2 style="text-align: center;">Data Ingestion</h2>
+
+        <img class="workflow-image" 
+             src="e3.jpg" 
+             alt="Description of your workflow diagram" style="max-width: 50%;margin-left:auto;margin-right:auto;display:block;">
+
+    </div>
+
+    <div class="navigation">
+        <a href="#slide4" class="nav-link">&larr; Previous</a>
+        <a href="#slide6" class="nav-link">Next &rarr;</a>
+    </div>
+</section>
+
+    <section class="slide" id="slide6">
+        <div class="slide-content">
+            <h2>3. Overload Simulation & Monitoring</h2>
+            <h3>Presented by: Kalyan Kumar Reddy C</h3>
+            
+                <video id="demoVideo" width="800" controls>
+    <source src="kv1.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+            
+            <h3>Technology Used</h3>
+             <div class="tech-logos">
+                <img src="prometheus.png" alt="Prometheus Logo">
+                <p><strong>Prometheus:</strong> A time-series database that "scrapes" (collects) metrics from our Kubernetes pods, most importantly CPU utilization.</p>
+            </div>
+            <h3>Implementation Details</h3>
+            <p>The system overload is simulated by the <code>load-generator</code> service we added to our Docker Compose file. It runs a continuous loop, sending a high volume of data to the <code>edgex-core-data</code> service. This sustained load stresses our target application. In parallel, our Prometheus stack, installed via Helm, constantly collects performance data from the application pod.</p>
+            <div class="error-section">
+                <h3>Errors Faced & Resolutions</h3>
+                <p><strong>Challenge 1: HPA Metric Status was "&lt;unknown&gt;"</strong></p>
+                <ul>
+                    <li><strong>Symptom:</strong> The command <code>kubectl get hpa</code> showed <code>&lt;unknown&gt;/500m</code> for the TARGETS column, indicating the HPA could not fetch the custom metric.</li>
+                    <li><strong>Resolution:</strong> This was a multi-step fix. We first installed the <strong>Prometheus Adapter</strong>. Then, we corrected its configuration via Helm to point to the correct Prometheus service URL, fixing a "no such host" error. Finally, we simplified the adapter's rule in <code>custom-metrics-values.yaml</code> to correctly process the custom <code>_avg</code> metric from your application.</li>
+                </ul>
+                <p><strong>Challenge 2: Missing Scrape Job</strong></p>
+                <ul>
+                    <li><strong>Symptom:</strong> After patching, the new scrape pool <code>local-target-app-direct</code> did not appear in the Prometheus Targets page.</li>
+                    <li><strong>Resolution:</strong> Verified that the Secret <code>additional-scrape-configs</code> was mounted correctly and reapplied Prometheus manifests with proper <code>additionalScrapeConfigs</code> reference.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="navigation">
+            <a href="#slide5" class="nav-link">&larr; Previous</a>
+            <a href="#slide7" class="nav-link">Next &rarr;</a>
+        </div>
+    </section>
+    <section class="slide" id="slide7">
+    <div class="slide-content">
+        <h2 style="text-align: center;">Prometheus</h2>
+
+        <img class="workflow-image" 
+             src="e2.jpg" 
+             alt="Description of your workflow diagram" style="max-width: 50%;margin-left:auto;margin-right:auto;display:block;">
+
+    </div>
+
+    <div class="navigation">
+        <a href="#slide6" class="nav-link">&larr; Previous</a>
+        <a href="#slide8" class="nav-link">Next &rarr;</a>
+    </div>
+</section>
+
+    <section class="slide" id="slide8">
+        <div class="slide-content">
+            <h2>4. Visualization & Latency-Aware Autoscaling in Action</h2>
+            <h3>Presented by: Niharika</h3>
+            
+                <video id="demoVideo" width="800" controls>
+                    <source src="nv - Made with Clipchamp.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+          
+            <h3>Technology Used</h3>
+            <div class="tech-logos">
+                <img src="grafana.jpeg" alt="Grafana Logo">
+                <p><strong>Grafana:</strong> The visualization platform where we built a dashboard to display live metrics from Prometheus.</p>
+            </div>
+            <div class="tech-logos">
+                <img src="hpa.jpeg" alt="Kubernetes HPA Logo">
+                <p><strong>Kubernetes HPA:</strong> The Horizontal Pod Autoscaler, configured to scale our application based on latency.</p>
+            </div>
+            <h3>The Latency-Aware Autoscaling Event</h3>
+            <p>Our implementation directly follows the advanced model proposed in the research paper. Instead of scaling on a crude metric like CPU, we scale based on the actual user experience: <strong>response time</strong>.</p>
+            <p>Our Grafana dashboard visualizes the entire feedback loop. The video shows:</p>
+            <ol>
+                <li>The <strong>"Average Response Latency (ms)"</strong> graph spikes past our 200ms target due to the simulated load.</li>
+                <li>The Kubernetes <strong>HPA</strong>, monitoring this custom latency metric via Prometheus, detects the service degradation and triggers a scaling event.</li>
+                <li>The terminal shows new pods being created.</li>
+                <li>The <strong>"Active Pod Count"</strong> graph on the dashboard jumps from 1 to 4.</li>
+                <li>As the new pods share the work, the average latency drops back below our target, demonstrating successful, user-centric load balancing.</li>
+            </ol>
+            <div class="error-section">
+                <h3>Errors Faced & Resolutions</h3>
+                <p><strong>Challenge 1: Monitoring Pod Crashing</strong></p>
+                <ul>
+                    <li><strong>Symptom:</strong> A monitoring pod called <code>prometheus-node-exporter</code> was stuck in a <code>CrashLoopBackOff</code> state.</li>
+                    <li><strong>Resolution:</strong> This pod requires host-level permissions that Docker Desktop restricts. Since it wasn't critical, we reinstalled the Prometheus Helm chart with the component disabled via the flag <strong><code>--set prometheus-node-exporter.enabled=false</code></strong>.</li>
+                </ul>
+                <p><strong>Challenge 2: Grafana Panel Showed "No Data"</strong></p>
+                <ul>
+                    <li><strong>Symptom:</strong> The "Average Request Latency" panel in Grafana displayed "No Data", and running the query directly in Prometheus returned an "Empty query result".</li>
+                    <li><strong>Resolution:</strong> We identified that the application was running but not receiving any HTTP traffic. The solution was to use <code>kubectl port-forward</code> and a PowerShell script to send repeated <code>POST</code> requests to the application, which caused it to generate the required latency metrics.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="navigation">
+            <a href="#slide7" class="nav-link">&larr; Previous</a>
+            <a href="#slide9" class="nav-link">Next &rarr;</a>
+        </div>
+    </section>
+    <section class="slide" id="slide9">
+    <div class="slide-content">
+        <h2 style="text-align: center;">Grafana</h2>
+
+        <img class="workflow-image" 
+             src="e4.jpg" 
+             alt="Description of your workflow diagram" style="max-width: 50%;margin-left:auto;margin-right:auto;display:block;">
+
+    </div>
+    <div class="navigation">
+        <a href="#slide8" class="nav-link">&larr; Previous</a>
+        <a href="#slide10" class="nav-link">Next &rarr;</a>
+    </div>
+</section>
+
+    <section class="slide" id="slide10">
+        <div class="slide-content">
+
+            <h2>5. Future Integration: The DRL Model Maker</h2>
+            <h3>Presented by: Aditya Suresh</h3>
+
+            <h3>Deep Reinforcement Learning for Edge-based Healthcare Prediction</h3>
+            <img style="display: block; margin: 0 auto; max-width: 45%;" src="Screenshot (90).png" alt="EdgeX Foundry Logo">
+            <h2>We use a two-stage DRL process:</h2>
+            <div class="drl-process-container">
+                <div class="drl-stage">
+                    <div class="stage-number">01</div>
+                    <h3>Supervised Warm-start (NOT DRL)</h3>
+                    <ul>
+                        <li><span class="icon"></span> Uses <strong>Focal Loss</strong> to handle imbalance.</li>
+                        <li><span class="icon"></span> Gives the network a <strong>reasonable starting point</strong>.</li>
+                        <li><span class="icon"></span> Without this, DRL starts from random guessing → very unstable.</li>
+                    </ul>
+                </div>
+                <div class="drl-stage">
+                    <div class="stage-number">02</div>
+                    <h3>Policy Gradient (REINFORCE) Fine-tuning [DRL]</h3>
+                    <ul>
+                        <li><span class="icon"></span> The actual DRL stage.</li>
+                        <li><span class="icon"></span> Agent predicts disease from sensor inputs.</li>
+                    </ul>
+                    <h4>Reward System:</h4>
+                    <ul>
+                        <li><span class="icon" style="color: #28a745;">✅</span> Correct → positive reward.</li>
+                        <li><span class="icon" style="color: #28a745;">✅</span> Rare/critical disease → extra reward.</li>
+                        <li><span class="icon" style="color: #dc3545;">❌</span> Wrong → penalty.</li>
+                    </ul>
+                    <ul>
+                        <li><span class="icon"></span> Learns policies that maximize <strong>long-term classification accuracy</strong>.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="navigation">
+            <a href="#slide9" class="nav-link">&larr; Previous</a>
+            <a href="#slide11" class="nav-link">Next &rarr;</a>
+        </div>
+    </section>
+
+    <section class="slide" id="slide11">
+    <div class="slide-content">
+        <h2>6. Future Integration: Federated Learning</h2>
+        <h3>Presented by: Himanshu M</h3>
+        <img style="display: block; margin: 0 auto; max-width: 45%;" src="Screenshot (91).png" alt="EdgeX Foundry Logo">
+        <p style="text-align: center; max-width: 800px; margin: 15px auto;">A key challenge in healthcare is training AI models on diverse datasets without violating patient privacy. The planned future implementation to solve this is <strong>Federated Learning</strong>.</p>
+
+        <div class="fl-steps-container-vertical">
+            <div class="fl-step-block">
+                <div class="fl-step-number">1</div>
+                <div class="fl-step-content">
+                    <h4 class="fl-step-title">Local Training</h4>
+                    <p>Each edge node (e.g., a hospital's server) uses its own private patient data to locally train and improve its copy of the DRL model.</p>
+                </div>
+            </div>
+            <div class="fl-step-block">
+                <div class="fl-step-number">2</div>
+                <div class="fl-step-content">
+                    <h4 class="fl-step-title">Share Anonymous Updates</h4>
+                    <p>Only the generalized, anonymous model updates (mathematical weights and biases) are sent to a central aggregation server. <strong>No private patient data ever leaves the edge node.</strong></p>
+                </div>
+            </div>
+            <div class="fl-step-block">
+                <div class="fl-step-number">3</div>
+                <div class="fl-step-content">
+                    <h4 class="fl-step-title">Aggregate & Distribute</h4>
+                    <p>The central server combines the updates from all edge nodes to create an improved "global model." This smarter global model is then sent back to all the edge nodes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navigation">
+    <a href="#slide10" class="nav-link">&larr; Previous</a>
+    <a href="#slide12" class="nav-link">Next &rarr;</a>
+</div>
+</section>
+<section class="slide" id="slide12">
+    <div class="slide-content">
+        <h2 style="text-align: center;">7. Future Work: The Core Transition</h2>
+        <p style="text-align: center;">Our primary goal is to evolve from a reactive, system-based scaling model to a proactive, user-centric one.</p>
+        
+        <div class="transition-container">
+            <div class="transition-card current">
+                <h4><span class="icon">⚙️</span>Current: CPU-Based Scaling</h4>
+                <ul>
+                    <li><strong>Reactive:</strong> Scales only when the server's CPU is already high. By this point, users may already be experiencing delays.</li>
+                    <li><strong>Indirect Metric:</strong> High CPU usage does not always correlate with poor user experience (high latency), leading to inefficient scaling.</li>
+                    <li><strong>System-Centric:</strong> Focuses on the health of the server, not the quality of service delivered to the end-user.</li>
+                </ul>
+            </div>
+            
+            <div style="display: flex; align-items: center; font-size: 4em; color: #6c757d;">
+                &rarr;
+            </div>
+
+            <div class="transition-card future">
+                <h4><span class="icon">⏱️</span>Proposed: Latency-Aware Scaling</h4>
+                <ul>
+                    <li><strong>Proactive:</strong> Scales based on actual application response times, directly measuring the user's experience.</li>
+                    <li><strong>Direct Metric:</strong> Targets the most critical performance indicator for real-time systems, ensuring a consistently smooth and responsive service.</li>
+                    <li><strong>User-Centric:</strong> Guarantees more efficient real-time performance by scaling to meet user needs *before* the system becomes overloaded.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="navigation">
+        <a href="#slide11" class="nav-link">&larr; Previous</a>
+        <a href="#slide13" class="nav-link">Next &rarr;</a>
+    </div>
+</section>
+
+    <section class="slide" id="slide13">
+        <div class="thank-you-container">
+            <h1>Thank You</h1>
+            <h2>Questions?</h2>
+        </div>
+        <div class="navigation">
+            <a href="#slide12" class="nav-link">&larr; Previous</a>
+            <span></span>
+        </div>
+    </section>
+</body>
+
+</html>
+<!-- <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const video = document.getElementById("demoVideo");
+
+    // Wait until video metadata is ready, then set speed
+    video.addEventListener("loadedmetadata", function() {
+      video.playbackRate = 2.0; // Set playback speed to 2x
+    });
+  });
+</script> -->
